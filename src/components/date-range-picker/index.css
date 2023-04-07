@@ -18,11 +18,12 @@
   border-radius: 0.25rem;
   background: #fff;
   padding: 1rem;
-  width: 16rem;
+  width: 15.5rem;
   animation-name: fadeInDown;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
+    rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 }
 
 .dateRangePickerCalendarControls {
@@ -40,10 +41,27 @@
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 0.25rem;
 }
 
 .dateRangePickerCalendarDay {
-  flex: 1 0 12%;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background: white;
+  border: none;
+}
+
+.dateRangePickerCalendarDay.selected {
+  background: #1976d2;
+  color: #fff;
+}
+
+.dateRangePickerCalendarDay.dayInRange {
+  background: rgba(25, 118, 210, 0.2);
+}
+
+.dateRangePickerCalendarDay:hover {
+  background: #ccc;
+  color: #000;
 }

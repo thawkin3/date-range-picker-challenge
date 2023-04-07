@@ -112,16 +112,29 @@ export const DateRangePicker = () => {
                 ? currentMonthIndex + 1
                 : currentMonthIndex;
 
+              const fullDateForDay = new Date(2023, monthIndexForThisDay, day);
+              const isSelected =
+                startDate?.toDateString() === fullDateForDay.toDateString() ||
+                endDate?.toDateString() === fullDateForDay.toDateString();
+
+              const isInsideSelectedRange =
+                startDate &&
+                endDate &&
+                fullDateForDay > startDate &&
+                fullDateForDay < endDate;
+
               return (
                 <button
+                  key={`${monthIndexForThisDay}-${day}-2023-${index}`}
                   data-testid="date-range-picker-calendar-day"
-                  className="dateRangePickerCalendarDay"
+                  className={`dateRangePickerCalendarDay${
+                    isSelected ? ' selected' : ''
+                  }${isInsideSelectedRange ? ' dayInRange' : ''}`}
                   type="button"
                   onClick={handleDayClick}
                   data-day={day}
                   data-month={monthIndexForThisDay + 1}
                   data-year={2023}
-                  key={`${monthIndexForThisDay}-${day}-2023-${index}`}
                 >
                   {day}
                 </button>
