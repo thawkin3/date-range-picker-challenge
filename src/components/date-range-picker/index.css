@@ -15,14 +15,14 @@
 
 .dateRangePickerCalendar {
   position: absolute;
-  /* TODO: add a slight gap between the trigger button and the calendar popup */
-  border: solid 0.0625rem #000;
   border-radius: 0.25rem;
+  background: #fff;
   padding: 1rem;
   width: 16rem;
   animation-name: fadeInDown;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
 }
 
 .dateRangePickerCalendarControls {
