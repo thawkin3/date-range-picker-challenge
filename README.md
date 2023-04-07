@@ -4,6 +4,10 @@ In 2-3 hours, could you implement a fake date range picker with React? You can u
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Getting Started
+
+Run `npm install` followed by `npm start` to start your app running locally.
+
 ## Scripts for Local Development
 
 - `npm run build`: Builds the production app
