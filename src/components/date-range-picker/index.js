@@ -46,7 +46,6 @@ export const DateRangePicker = () => {
   };
 
   const handleOutsideClick = () => {
-    console.log('handleOutsideClick', dateRangePickerTriggerButtonRef.current);
     toggleDatePicker();
     dateRangePickerTriggerButtonRef.current?.focus();
   };
