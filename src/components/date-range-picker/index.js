@@ -76,6 +76,7 @@ export const DateRangePicker = () => {
         data-testid="date-range-picker-trigger-button"
         className="dateRangePickerTriggerButton"
         ref={dateRangePickerTriggerButtonRef}
+        aria-haspopup="true"
       >
         Select date range
       </button>
@@ -91,6 +92,9 @@ export const DateRangePicker = () => {
               data-testid="date-range-picker-calendar"
               className="dateRangePickerCalendar"
               onKeyDown={handleEscapeKey}
+              aria-modal="true"
+              role="dialog"
+              aria-label="Date Range Picker"
             >
               <div
                 data-testid="date-range-picker-calendar-controls"
@@ -141,10 +145,12 @@ export const DateRangePicker = () => {
                     monthIndexForThisDay,
                     day
                   );
-                  const isSelected =
-                    startDate?.toDateString() ===
-                      fullDateForDay.toDateString() ||
+
+                  const isStartDate =
+                    startDate?.toDateString() === fullDateForDay.toDateString();
+                  const isEndDate =
                     endDate?.toDateString() === fullDateForDay.toDateString();
+                  const isSelected = isStartDate || isEndDate;
 
                   const isInsideSelectedRange =
                     startDate &&
@@ -164,6 +170,17 @@ export const DateRangePicker = () => {
                       data-day={day}
                       data-month={monthIndexForThisDay + 1}
                       data-year={2023}
+                      aria-label={`${fullDateForDay.toLocaleDateString(
+                        'en-US',
+                        {
+                          weekday: 'short',
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric',
+                        }
+                      )}${isStartDate ? ', Selected start date' : ''}${
+                        isEndDate ? ', Selected end date' : ''
+                      }${isInsideSelectedRange ? ', In selected range' : ''}`}
                     >
                       {day}
                     </button>
