@@ -1,3 +1,14 @@
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0.25rem);
+  }
+}
+
 .dateRangePicker {
   position: relative;
 }
@@ -9,6 +20,9 @@
   border-radius: 0.25rem;
   padding: 1rem;
   width: 16rem;
+  animation-name: fadeInDown;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
 
 .dateRangePickerCalendarControls {
