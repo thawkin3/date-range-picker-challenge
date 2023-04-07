@@ -2,6 +2,7 @@
   "name": "date-range-picker-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://tylerhawkins.info/date-range-picker-challenge/build/",
   "dependencies": {
     "focus-trap": "^7.4.0",
     "focus-trap-react": "^10.1.1",
