@@ -20,8 +20,42 @@ export const DateRangePicker = () => {
     setCurrentMonthIndex((currentMonthIndex) => currentMonthIndex + 1);
   };
 
+  const handleDayClick = (e) => {
+    const { day, month, year } = e.target.dataset;
+    const selectedDate = new Date(year, month - 1, day);
+
+    if (!startDate) {
+      return setStartDate(selectedDate);
+    }
+
+    if (selectedDate < startDate) {
+      return setStartDate(selectedDate);
+    }
+
+    setEndDate(selectedDate);
+    toggleDatePicker();
+  };
+
   return (
     <div data-testid="date-range-picker" className="dateRangePicker">
+      <p>
+        Start date:{' '}
+        {startDate?.toLocaleDateString(undefined, {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        })}
+      </p>
+      <p>
+        End date:{' '}
+        {endDate?.toLocaleDateString(undefined, {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        })}
+      </p>
       <button
         type="button"
         onClick={toggleDatePicker}
@@ -66,15 +100,33 @@ export const DateRangePicker = () => {
             data-testid="date-range-picker-calendar-days"
             className="dateRangePickerCalendarDays"
           >
-            {days[currentMonthIndex].map((day) => (
-              <button
-                data-testid="date-range-picker-calendar-day"
-                className="dateRangePickerCalendarDay"
-                type="button"
-              >
-                {day}
-              </button>
-            ))}
+            {days[currentMonthIndex].map((day, index) => {
+              const indexOfFirstDayOfMonth = days[currentMonthIndex].indexOf(1);
+              const isPreviousMonth = index < indexOfFirstDayOfMonth;
+              const isNextMonth =
+                day < 15 && index > days[currentMonthIndex].indexOf(day);
+
+              const monthIndexForThisDay = isPreviousMonth
+                ? currentMonthIndex - 1
+                : isNextMonth
+                ? currentMonthIndex + 1
+                : currentMonthIndex;
+
+              return (
+                <button
+                  data-testid="date-range-picker-calendar-day"
+                  className="dateRangePickerCalendarDay"
+                  type="button"
+                  onClick={handleDayClick}
+                  data-day={day}
+                  data-month={monthIndexForThisDay + 1}
+                  data-year={2023}
+                  key={`${monthIndexForThisDay}-${day}-2023-${index}`}
+                >
+                  {day}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
