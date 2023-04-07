@@ -1,0 +1,35 @@
+.dateRangePicker {
+  position: relative;
+}
+
+.dateRangePickerCalendar {
+  position: absolute;
+  /* TODO: add a slight gap between the trigger button and the calendar popup */
+  border: solid 0.0625rem #000;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  width: 16rem;
+}
+
+.dateRangePickerCalendarControls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateRangePickerNextPreviousButtons {
+  display: inline-flex;
+  align-self: flex-end;
+  gap: 0.25rem;
+}
+
+.dateRangePickerCalendarDays {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.dateRangePickerCalendarDay {
+  flex: 1 0 12%;
+}
