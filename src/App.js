@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 import { DateRangePicker } from './components/date-range-picker';
 import { Notes } from './Notes';
 

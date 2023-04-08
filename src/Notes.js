@@ -5,7 +5,7 @@ export const Notes = () => (
   <div className="notes">
     <h2>Notes for Interviewers</h2>
     <p>
-      Thanks for looking at this! It was fun challenge. This is nowhere near
+      Thanks for looking at this! It was a fun challenge. This is nowhere near
       where I'd like it to be, but I've exhausted my three hours and should stop
       here. I'd love to keep working on this though.
     </p>
@@ -78,7 +78,10 @@ export const Notes = () => (
             dialog, so it has `aria-modal="true"`, `role="dialog"` and an
             `aria-label` on it. The focus trap and aria markup keeps the screen
             reader from interacting with content behind the datepicker while it
-            is open.
+            is open. Each day in the calendar has an aria-label communicating
+            what day it is and whether it's the start date, end date, or in the
+            date range. The Next Month and Previous Month buttons have
+            aria-label attributes for screen readers as well.
           </li>
         </ul>
       </li>
@@ -91,6 +94,39 @@ export const Notes = () => (
       <li>
         The date buttons have states for selected, hover, and when they are in
         between the range of selected dates.
+      </li>
+      <li>There is a minor animation when the datepicker opens.</li>
+    </ol>
+    <h3>To Do</h3>
+    <ol>
+      <li>Localization / Internationalization</li>
+      <li>Unit tests</li>
+      <li>Animation when the date picker is closed</li>
+      <li>
+        Put datepicker in a React portal to avoid the case where it gets hidden
+        by parent containers with `overflow: hidden` on them or that have
+        conflicting z-index issues
+      </li>
+      <li>
+        Use text inputs instead of just a button, and use input masking for a
+        better UX
+      </li>
+      <li>
+        Show dates in range when hovering over dates, not just after the
+        selection has already been made
+      </li>
+      <li>
+        Show dates in range with a long connected background instead of separate
+        circles
+      </li>
+      <li>
+        Separate one large component into smaller sub-components (Calendar, Day,
+        etc.)
+      </li>
+      <li>Additional cross-browser testing</li>
+      <li>
+        Possibly create a mobile version that uses the native datepicker, not
+        just a mobile responsive component
       </li>
     </ol>
   </div>
